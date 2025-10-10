@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitemiz Bakımda</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    .loader {
+      margin-top: 2em;
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(255, 255, 255, 0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Sitemiz Şu An Bakımda 🛠️</h1>
+  <p>Kısa süre içinde tekrar aktif olacağız. Anlayışınız için teşekkür ederiz 💖</p>
+  <div class="loader"></div>
+</body>
+</html>
