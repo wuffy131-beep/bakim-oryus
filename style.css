@@ -1,3 +1,12 @@
+Elbette\! Yeni eklediğiniz **"Haftalık Anılar"** paketine göre optimize edilmiş ve tüm paket kartlarının masaüstünde yan yana düzgün görünmesini sağlayan güncel CSS kodlarının tamamını aşağıda bulabilirsiniz.
+
+Bu kodları doğrudan `style.css` dosyanıza yapıştırabilirsiniz.
+
+-----
+
+### Güncellenmiş CSS Stilleri (`style.css`) - Eksiksiz Versiyon
+
+```css
 /* Ana Renk Paleti: Koyu Gri/Mavi (Arkaplan), Beyaz (Metin/Kart), Canlı Pembe ve Altın (Vurgu) */
 :root {
     --primary-color: #E91E63; /* Canlı Pembe */
@@ -407,3 +416,4 @@ body {
         padding: 15px 30px;
     }
 }
+```
