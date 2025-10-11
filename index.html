@@ -1,52 +1,86 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sitemiz Bakımda</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffb6c1, #ff69b4);
-      font-family: "Poppins", sans-serif;
-      color: #fff;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.3em;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-    }
-
-    p {
-      font-size: 1.2em;
-      opacity: 0.9;
-    }
-
-    .loader {
-      margin-top: 2em;
-      width: 60px;
-      height: 60px;
-      border: 6px solid rgba(255, 255, 255, 0.4);
-      border-top-color: white;
-      border-radius: 50%;
-      animation: spin 1.2s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günü Siteciniz - Kişiye Özel Sürpriz Web Siteleri</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Sitemiz Şu An Bakımda 🛠️</h1>
-  <p>Kısa süre içinde tekrar aktif olacağız. Anlayışınız için teşekkür ederiz 💖</p>
-  <div class="loader"></div>
-</body>
+
+    <header class="header">
+        <div class="container">
+            <h1>Doğum Günü Siteciniz</h1>
+            <p>Kişiye Özel Sürpriz Web Siteleri</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h2>Sevdiklerinize Unutulmaz Bir Dijital Hediye Sunun!</h2>
+            <p>Onların en özel anılarıyla, fotoğraflarıyla ve size özel mesajlarınızla tasarlanmış, sadece onlara ait, şık bir web sitesi yaratıyoruz.</p>
+        </section>
+
+        <section class="packages">
+            <h2 class="section-title">Size Özel Paketlerimiz</h2>
+
+            <div class="package-card">
+                <h3>Hızlı Sürpriz</h3>
+                <p class="duration">⏱️ 1 Saat Erişim</p>
+                <p class="photos">🖼️ En Fazla 20 Fotoğraf</p>
+                <div class="pricing">
+                    <span class="old-price">450 TL</span>
+                    <span class="new-price">200 TL</span>
+                    <span class="discount-label">Anlık Fırsat!</span>
+                </div>
+                <p class="detail">Anlık sürprizler, özel anı göstermek ve kısa süreli paylaşımlar için mükemmel seçim.</p>
+                <a href="https://www.instagram.com/dogumgunusiteciniz" target="_blank" class="insta-button">Detayları İncele ve Sipariş Ver</a>
+            </div>
+
+            <div class="package-card featured">
+                <h3>Günün Yıldızı</h3>
+                <p class="duration">📅 1 Gün Erişim (24 Saat)</p>
+                <p class="photos">📸 En Fazla 30 Fotoğraf</p>
+                <div class="pricing">
+                    <span class="old-price">900 TL</span>
+                    <span class="new-price">600 TL</span>
+                    <span class="discount-label">Popüler Seçim!</span>
+                </div>
+                <p class="detail">Doğum gününün tamamı boyunca erişilebilir. Daha fazla anı paylaşmak ve gün boyu keyif almak için en çok tercih edilen paket.</p>
+                <a href="https://www.instagram.com/dogumgunusiteciniz" target="_blank" class="insta-button">Detayları İncele ve Sipariş Ver</a>
+            </div>
+
+        </section>
+
+        <section class="how-it-works">
+            <h2 class="section-title">Neden Bizi Seçmelisiniz?</h2>
+            <ul>
+                <li>**Kişiye Özel Domain:** Siteniz, isteğe bağlı olarak uygun olan bir alt alan adı (`[isim].dogumgunusiteciniz.com` gibi) ile yayınlanır.</li>
+                <li>**Profesyonel Tasarım:** Şık, mobil uyumlu ve doğum günü konseptine uygun, göz yormayan temalar.</li>
+                <li>**Anı Galerisi:** Belirttiğiniz sayıda fotoğrafın yer aldığı düzenli ve estetik bir galeri sunumu.</li>
+                <li>**Özel Mesaj:** Sitenin ana sayfasında veya özel bir bölümde duygusal ve kişisel doğum günü mesajınız.</li>
+                <li>**Hızlı Kurulum:** Tüm bilgileriniz alındıktan sonra site kurulumunuz hızla tamamlanır.</li>
+            </ul>
+        </section>
+
+        <section class="order-section">
+            <h2 class="section-title">Sipariş Oluşturma Adımları ve İletişim</h2>
+            <p>İndirimli fiyatlardan faydalanmak ve sürprizinizi planlamak için **SADECE Instagram** üzerinden bize ulaşın:</p>
+            
+            <a href="https://www.instagram.com/dogumgunusiteciniz" target="_blank" class="main-cta-button">
+                🥳 Instagram Üzerinden Sipariş Ver!
+            </a>
+            <p class="insta-handle">**Instagram:** @dogumgunusiteciniz</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Doğum Günü Siteciniz. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    </body>
 </html>
