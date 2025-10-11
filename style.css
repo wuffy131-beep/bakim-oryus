@@ -1,0 +1,204 @@
+/* Temel Sıfırlama ve Fontlar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: #e91e63; /* Pembe renk tonu */
+    text-align: center;
+}
+
+/* Header Stilleri */
+.header {
+    background-color: #e91e63;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.header p {
+    text-align: center;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* Giriş Bölümü (Hero) */
+.hero {
+    text-align: center;
+    padding: 40px 0;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Paketler Bölümü */
+.packages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.package-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 45%;
+    text-align: center;
+    border: 3px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.package-card.featured {
+    border-color: #ffc107; /* Öne çıkan paket rengi */
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+}
+
+.package-card h3 {
+    margin-top: 0;
+    color: #e91e63;
+    font-size: 1.5em;
+}
+
+.pricing {
+    margin: 15px 0;
+    font-size: 1.3em;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+    font-size: 0.8em;
+}
+
+.new-price {
+    color: #4CAF50; /* İndirimli fiyat rengi */
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.discount-label {
+    display: block;
+    color: #ff9800;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.insta-button {
+    display: inline-block;
+    background-color: #3f51b5; /* Mavi Buton */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.insta-button:hover {
+    background-color: #303f9f;
+}
+
+/* Hizmet Detayları */
+.how-it-works, .order-section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.how-it-works ul {
+    list-style: none;
+    padding: 0;
+}
+
+.how-it-works li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="%23e91e63" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat left center;
+    background-size: 18px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+/* Sipariş Bölümü */
+.order-section {
+    text-align: center;
+}
+
+.main-cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram Gradient */
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s;
+}
+
+.main-cta-button:hover {
+    opacity: 0.9;
+}
+
+.insta-handle {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .packages {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .package-card {
+        max-width: 100%;
+    }
+
+    .main-cta-button {
+        font-size: 1.2em;
+        padding: 15px 25px;
+    }
+}
