@@ -157,15 +157,16 @@
 
         .package-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
+            /* 4 kartı yan yana sığdırmak için min genişliği 220px'e ayarladık */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; /* Gap miktarını azalttık */
         }
 
         .package-card {
             background-color: var(--card-bg);
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            padding: 40px;
+            padding: 30px 20px; /* Mobil uyumluluk için dolguyu azalttık */
             text-align: center;
             transition: transform 0.4s, box-shadow 0.4s;
             position: relative;
@@ -178,13 +179,20 @@
             transform: scale(1.05);
         }
 
+        .package-card.proposal {
+            /* Evlilik teklifi paketi için özel stil */
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.7);
+            background-color: #382c33;
+        }
+
         .package-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         .package-card h3 {
-            font-size: 2em;
+            font-size: 1.8em; /* Font boyutunu biraz küçülttük */
             color: var(--secondary-color);
             margin-top: 5px;
             margin-bottom: 5px;
@@ -192,8 +200,9 @@
         .package-card .sub-text {
             color: var(--text-muted);
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             height: 40px; 
+            font-size: 0.9em;
         }
 
         .badge {
@@ -228,7 +237,7 @@
         .new-price {
             color: #4CAF50;
             font-weight: bold;
-            font-size: 3em;
+            font-size: 2.8em; /* Font boyutunu biraz küçülttük */
             display: block;
             line-height: 1;
         }
@@ -236,26 +245,27 @@
         .features {
             list-style: none;
             padding: 0;
-            margin: 0 0 30px;
+            margin: 0 0 20px;
             text-align: left;
         }
 
         .features li {
-            padding: 10px 0;
+            padding: 8px 0; /* Dolguyu azalttık */
             border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
             color: var(--text-light);
+            font-size: 0.95em;
         }
 
         .features li i {
             color: var(--primary-color);
-            margin-right: 12px;
+            margin-right: 10px;
         }
 
         .insta-button {
             display: block;
             background-color: var(--primary-color);
             color: white;
-            padding: 14px 0;
+            padding: 12px 0;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
@@ -274,6 +284,15 @@
 
         .cta-premium:hover {
             background-color: #ff9800;
+        }
+
+        .cta-proposal {
+            background-color: #E91E63; /* Canlı Pembe */
+            color: white !important;
+        }
+
+        .cta-proposal:hover {
+            background-color: #d81b60;
         }
 
         /* 3. SÜREÇ BÖLÜMÜ */
@@ -397,18 +416,24 @@
             .package-card.premium {
                 transform: scale(1);
             }
+            /* 768px'in altında 2 kart yan yana */
+            .package-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
             .section-padding {
                 padding: 50px 0;
             }
-
+            /* 768px altında tüm paketler alt alta */
             .package-grid, .process-steps, .trust-points {
                 flex-direction: column;
                 gap: 20px;
             }
-
+            .package-card {
+                 padding: 30px;
+            }
             .main-cta-button, .instagram-button {
                 font-size: 1.1em;
                 padding: 15px 30px;
@@ -456,7 +481,7 @@
                         <li><i class="fas fa-check-circle"></i> **1 SAAT** Erişim</li>
                         <li><i class="fas fa-check-circle"></i> Max. 20 HD Fotoğraf</li>
                         <li><i class="fas fa-check-circle"></i> Kişiselleştirilmiş Link</li>
-                        <li><i class="fas fa-check-circle"></i> Özel Mesaj</li>
+                        <li><i class="fas fa-check-circle"></i> Özel Mesaj Modülü</li>
                     </ul>
                     <a href="#iletisim" class="insta-button scroll-link">Hemen Sipariş Ver</a>
                 </div>
@@ -489,9 +514,26 @@
                         <li><i class="fas fa-check-circle"></i> **7 GÜN** Tam Erişim</li>
                         <li><i class="fas fa-check-circle"></i> Max. 30 HD Fotoğraf</li>
                         <li><i class="fas fa-check-circle"></i> Kişiselleştirilmiş Link</li>
-                        <li><i class="fas fa-check-circle"></i> Özel Mesaj Alanı - Video Embed Desteği</li>
+                        <li><i class="fas fa-check-circle"></i> Süreli Özel Mesaj Alanı</li>
                     </ul>
                     <a href="#iletisim" class="insta-button scroll-link">Hemen Sipariş Ver</a>
+                </div>
+
+                <div class="package-card proposal" data-aos="fade-left">
+                    <div class="badge">EN ÖZEL</div>
+                    <h3>Sonsuz Anlar</h3>
+                    <p class="sub-text">Kalıcı evlilik teklifleri ve en özel anlar için sınırsız premium destek.</p>
+                    <div class="price-box">
+                        <span class="old-price">3500 TL</span>
+                        <span class="new-price">1900 TL</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-heart"></i> **2 Gün** Kalıcı Erişim</li>
+                        <li><i class="fas fa-heart"></i> Max. 40 HD Fotoğraf</li>
+                        <li><i class="fas fa-heart"></i> Özel Tema & Animasyonlar</li>
+                        <li><i class="fas fa-heart"></i> Müzik & Video Embed Desteği</li>
+                    </ul>
+                    <a href="#iletisim" class="insta-button cta-proposal scroll-link">Evlilik Teklifi Paketi</a>
                 </div>
 
             </div>
