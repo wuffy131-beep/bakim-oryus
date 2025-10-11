@@ -1,0 +1,13 @@
+# Tüm robotlar için geçerlidir.
+User-agent: *
+
+# Sitenin tamamının taranmasına izin ver.
+Allow: /
+
+# Arama motorlarının taramasını istemediğiniz sayfalar veya klasörler varsa buraya ekleyin.
+# Sitenizde kullanıcı girişi gerektiren veya özel bilgiler içeren bir klasör varsa gizleyebilirsiniz.
+# Disallow: /admin/
+# Disallow: /gizemli-arsiv/
+
+# Site Haritası (Sitemap) dosyasının konumunu belirtir.
+Sitemap: https://dogumgunusiteciniz.com/sitemap.xml
