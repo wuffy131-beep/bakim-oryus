@@ -374,7 +374,7 @@
             margin-top: 0;
         }
 
-        /* 5. YORUMLAR BÖLÜMÜ (Yeni) */
+        /* 5. YORUMLAR BÖLÜMÜ */
         .testimonials-section {
             background-color: var(--bg-dark);
         }
@@ -418,6 +418,56 @@
             margin: 0;
             color: var(--secondary-color);
         }
+        
+        /* AUTH VE YORUM FORMLARI İÇİN EK STİL */
+        .auth-forms, #yorum-ekle {
+            background-color: #1a222a;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+        }
+        .auth-forms {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .auth-forms form {
+            flex: 1;
+            min-width: 280px;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+        }
+        .auth-forms h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .auth-forms input, #yorum-ekle textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #333;
+            color: white;
+            box-sizing: border-box;
+        }
+        #auth-status {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .yorum-status {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
 
         /* 6. İLETİŞİM / SON ÇAĞRI BÖLÜMÜ */
         .contact-section {
@@ -526,6 +576,9 @@
                 font-size: 1.1em;
                 padding: 15px 30px;
             }
+            .auth-forms {
+                flex-direction: column;
+            }
         }
     </style>
     </head>
@@ -536,7 +589,7 @@
             <a href="#" class="logo">Siteciniz.</a>
             <nav class="nav">
                 <a href="#paketler">Fiyatlandırma</a>
-                <a href="#yorumlar">Yorumlar</a>
+                <a href="#canli-yorumlar">Yorumlar</a>
                 <a href="#surec">Nasıl Çalışır?</a>
                 <a href="#iletisim" class="cta-nav-button">Hemen Başla</a>
             </nav>
@@ -554,7 +607,6 @@
                     Örnek Siteyi Gör <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
-            
         </div>
     </section>
 
@@ -564,7 +616,6 @@
             <p class="section-subtitle">Fırsatı yakalayın. Tüm fiyatlar %33 - %55 indirimli olarak sunulmuştur.</p>
 
             <div class="package-grid">
-                
                 <div class="package-card standard" data-aos="fade-right">
                     <h3>Hızlı Sürpriz</h3>
                     <p class="sub-text">Anlık etkileyicilik ve kısa süreli paylaşımlar için.</p>
@@ -680,37 +731,42 @@
         </div>
     </section>
     
-    <section id="yorumlar" class="testimonials-section section-padding">
+    <section id="canli-yorumlar" class="testimonials-section section-padding">
         <div class="container">
-            <h2 class="section-title">Müşterilerimiz Ne Dedi?</h2>
-            <p class="section-subtitle">Mutluluğuna ortak olduğumuz yüzlerce kişiden bazı geri bildirimler.</p>
-            
-            <div class="testimonial-grid">
+            <h2 class="section-title">💬 Müşteri Yorumları & Etkileşim</h2>
+            <p class="section-subtitle">Yorum bırakmak ve etkileşim için lütfen giriş yapın veya kayıt olun.</p>
+
+            <div class="auth-forms" data-aos="fade-up">
                 
-                <div class="testimonial-card" data-aos="fade-up">
-                    <p>"Eşim bu sürprizi görünce kelimenin tam anlamıyla ağladı. Fotoğraflar ve müzik mükemmel bir uyum içindeydi. Gerçekten teşekkürler!"</p>
-                    <div class="client-info">
-                        <img src="https://via.placeholder.com/50/FFC107/1f2833?text=B" alt="Büşra Y.">
-                        <h4>Büşra Y. (İzmir)</h4>
-                    </div>
-                </div>
+                <form id="register-form">
+                    <h3>Yeni Hesap Oluştur</h3>
+                    <input type="text" id="reg-username" placeholder="Kullanıcı Adı" required>
+                    <input type="email" id="reg-email" placeholder="E-posta" required>
+                    <input type="password" id="reg-password" placeholder="Şifre (Min 6 karakter)" required>
+                    <button type="submit" class="insta-button" style="width: 100%;">Kayıt Ol</button>
+                </form>
 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
-                    <p>"Teklif anımı dijital bir hatıraya dönüştürmek harika bir fikirdi. O link sonsuza kadar bizim için çok özel kalacak. Sonsuz Anlar paketi tam istediğim gibiydi."</p>
-                    <div class="client-info">
-                        <img src="https://via.placeholder.com/50/E91E63/ffffff?text=E" alt="Emre K.">
-                        <h4>Emre K. (İstanbul)</h4>
-                    </div>
-                </div>
+                <form id="login-form">
+                    <h3>Giriş Yap</h3>
+                    <input type="email" id="login-email" placeholder="E-posta" required>
+                    <input type="password" id="login-password" placeholder="Şifre" required>
+                    <button type="submit" class="insta-button cta-premium" style="width: 100%;">Giriş Yap</button>
+                </form>
+            </div>
+            <p id="auth-status" style="color: var(--secondary-color);"></p>
 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <p>"Siteyi tam zamanında teslim ettiler ve her soruma sabırla cevap verdiler. Hizmet kalitesi fiyatının çok üzerinde. Herkese tavsiye ederim."</p>
-                    <div class="client-info">
-                        <img src="https://via.placeholder.com/50/4CAF50/ffffff?text=M" alt="Mert A.">
-                        <h4>Mert A. (Ankara)</h4>
-                    </div>
-                </div>
 
+            <div id="yorum-ekle" class="package-card" style="display: none; margin-top: 30px;" data-aos="zoom-in">
+                <h3>Yorumunuzu Bırakın <span id="current-user-span"></span></h3>
+                <textarea id="yorum-metni" rows="4" placeholder="Düşüncelerinizi buraya yazın..." required></textarea>
+                <button id="gonder-btn" class="insta-button cta-proposal" style="width: 100%;">Yorumu Gönder</button>
+                <p id="yorum-mesaj" class="yorum-status"></p>
+            </div>
+
+
+            <h3 style="color: var(--secondary-color); margin-top: 50px; text-align: center;">Tüm Müşteri Yorumları:</h3>
+            <div id="yorumlar-listesi" class="testimonial-grid" data-aos="fade-up" data-aos-delay="200">
+                <p style="text-align: center; grid-column: 1 / -1; color: var(--text-muted);">Yorumlar yükleniyor...</p>
             </div>
         </div>
     </section>
@@ -750,12 +806,202 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
+
+        // =========================================================================
+        // DİNAMİK GİRİŞ/KAYIT VE YORUM MANTIĞI (Vercel API'ye Bağlanıyor)
+        // =========================================================================
+
+        // !!! LÜTFEN BURAYI KENDİ VERCEL SİTE ADINIZLA DEĞİŞTİRİN !!!
+        // Örn: 'https://ornekdogumgunu.vercel.app/api'
+        const API_BASE_URL = 'https://[VERCEL-SITE-ADINIZ].vercel.app/api'; 
+        
+        let currentUserId = localStorage.getItem('userId'); // Kullanıcının ID'sini sakla
+        let currentUsername = localStorage.getItem('username'); // Kullanıcının adını sakla
+
+        const authStatus = document.getElementById('auth-status');
+        const yorumEkleDiv = document.getElementById('yorum-ekle');
+        const authFormsDiv = document.querySelector('.auth-forms');
+        const currentUserSpan = document.getElementById('current-user-span');
+        const yorumlarListesiDiv = document.getElementById('yorumlar-listesi');
+        const yorumMesajP = document.getElementById('yorum-mesaj');
+        
+        // --- Durum Kontrolü ve Arayüz Güncelleme ---
+        function updateUI() {
+            if (currentUserId && currentUsername) {
+                authStatus.innerHTML = `<i class="fas fa-check-circle" style="color: #4CAF50;"></i> **${currentUsername}**, giriş yaptınız. Artık yorum yapabilirsiniz.`;
+                authFormsDiv.style.display = 'none';
+                yorumEkleDiv.style.display = 'block';
+                currentUserSpan.textContent = `(Hoş Geldin, ${currentUsername})`;
+            } else {
+                authStatus.textContent = 'Yorum yapmak için lütfen yukarıdan giriş yapın veya kayıt olun.';
+                authFormsDiv.style.display = 'flex';
+                yorumEkleDiv.style.display = 'none';
+            }
+        }
+        
+        // --- 1. KAYIT İŞLEMİ ---
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('reg-username').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            authStatus.textContent = 'Kayıt işlemi sürüyor...';
+            
+            try {
+                const res = await fetch(`${API_BASE_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+                const data = await res.json();
+                
+                if (res.ok) {
+                    authStatus.textContent = `✅ Kayıt başarılı! Lütfen giriş yapın.`;
+                    authStatus.style.color = '#4CAF50';
+                    document.getElementById('register-form').reset();
+                } else {
+                    authStatus.textContent = `❌ Hata: ${data.message}`;
+                    authStatus.style.color = 'var(--primary-color)';
+                }
+            } catch (error) {
+                authStatus.textContent = `❌ Sunucuya ulaşılamıyor. Lütfen deneyin.`;
+                authStatus.style.color = 'red';
+            }
+        });
+
+        // --- 2. GİRİŞ İŞLEMİ ---
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            authStatus.textContent = 'Giriş kontrol ediliyor...';
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    // Başarılı giriş: ID ve kullanıcı adını kaydet
+                    currentUserId = data.user.userId;
+                    currentUsername = data.user.username;
+                    localStorage.setItem('userId', currentUserId);
+                    localStorage.setItem('username', currentUsername);
+                    updateUI(); // Arayüzü güncelle
+                } else {
+                    authStatus.textContent = `❌ Hata: ${data.message}`;
+                    authStatus.style.color = 'var(--primary-color)';
+                }
+            } catch (error) {
+                authStatus.textContent = `❌ Sunucuya ulaşılamıyor. Lütfen deneyin.`;
+                authStatus.style.color = 'red';
+            }
+        });
+
+        // --- 3. YORUMLARI ÇEKME İŞLEMİ ---
+        async function fetchComments() {
+            yorumlarListesiDiv.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; color: var(--secondary-color);">Yorumlar alınıyor...</p>';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/comments`);
+
+                if (!response.ok) {
+                    throw new Error(`Yorum API hatası: ${response.status}`);
+                }
+
+                const comments = await response.json();
+                yorumlarListesiDiv.innerHTML = ''; 
+
+                if (comments.length === 0) {
+                    yorumlarListesiDiv.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; color: var(--text-muted);">Henüz yorum yok. İlk yorumu siz yapın!</p>';
+                    return;
+                }
+
+                comments.forEach(yorum => {
+                    const card = document.createElement('div');
+                    card.className = 'testimonial-card';
+                    card.setAttribute('data-aos', 'fade-up');
+                    
+                    const tarih = new Date(yorum.created_at).toLocaleDateString('tr-TR');
+                    const username = yorum.username || 'Anonim';
+                    
+                    card.innerHTML = `
+                        <p>"${yorum.content}"</p>
+                        <div class="client-info">
+                            <img src="https://via.placeholder.com/50/${username.length % 2 === 0 ? 'E91E63' : 'FFC107'}/1f2833?text=${username.charAt(0).toUpperCase()}" alt="${username}">
+                            <h4>${username} (${tarih})</h4>
+                        </div>
+                    `;
+                    yorumlarListesiDiv.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Yorum yüklenirken hata:', error);
+                yorumlarListesiDiv.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; color: red;">Yorumlar yüklenemedi. API bağlantısını kontrol edin.</p>';
+            }
+        }
+
+        // --- 4. YORUM GÖNDERME İŞLEMİ ---
+        document.getElementById('gonder-btn').addEventListener('click', async () => {
+            const content = document.getElementById('yorum-metni').value.trim();
+
+            if (!currentUserId) {
+                alert("Yorum yapmadan önce lütfen giriş yapın!");
+                return;
+            }
+            if (!content) {
+                yorumMesajP.textContent = 'Lütfen yorum alanını doldurun.';
+                yorumMesajP.style.color = 'var(--primary-color)';
+                return;
+            }
+
+            yorumMesajP.textContent = 'Yorum gönderiliyor...';
+            yorumMesajP.style.color = 'var(--secondary-color)';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/comments`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        user_id: currentUserId,
+                        content: content
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    yorumMesajP.textContent = `✅ Yorumunuz başarıyla eklendi!`;
+                    yorumMesajP.style.color = '#4CAF50';
+                    document.getElementById('yorum-metni').value = '';
+                    await fetchComments();
+                } else {
+                    yorumMesajP.textContent = `❌ Hata: ${data.message}`;
+                    yorumMesajP.style.color = 'var(--primary-color)';
+                }
+
+            } catch (error) {
+                yorumMesajP.textContent = `❌ Sunucuya ulaşılamıyor. Lütfen Vercel API'yi kontrol edin.`;
+                yorumMesajP.style.color = 'red';
+            }
+        });
+
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+            fetchComments();
+        });
+
     </script>
 </body>
 </html>
