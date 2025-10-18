@@ -10,15 +10,14 @@
     <style>
         /* Ana Renk Paleti: Koyu Gri/Mavi (Arkaplan), Beyaz (Metin/Kart), Canlı Pembe ve Altın (Vurgu) */
         :root {
-            --primary-color: #E91E63; /* Canlı Pembe */
-            --secondary-color: #FFC107; /* Altın Sarı */
-            --bg-dark: #1f2833; /* Koyu Mavi/Gri */
+            --primary-color: #E91E63;
+            --secondary-color: #FFC107;
+            --bg-dark: #1f2833;
             --text-light: #ffffff;
             --text-muted: #a6a6a6;
             --card-bg: #2c3846;
         }
 
-        /* Temel Sıfırlama ve Fontlar */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -110,7 +109,7 @@
         /* 1. HERO BÖLÜMÜ */
         .hero-section {
             background-color: var(--bg-dark);
-            padding: 120px 0;
+            padding: 120px 0 80px;
             text-align: center;
         }
 
@@ -131,6 +130,12 @@
             max-width: 800px;
             margin: 0 auto 40px;
         }
+        
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
         .main-cta-button {
             display: inline-block;
@@ -149,6 +154,23 @@
             background-color: #d81b60;
             transform: translateY(-3px);
         }
+        
+        .secondary-cta-button {
+            background-color: var(--card-bg);
+            border: 2px solid var(--text-muted);
+            color: var(--text-light);
+            padding: 18px 30px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: border-color 0.3s;
+        }
+
+        .secondary-cta-button:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
 
         /* 2. PAKETLER BÖLÜMÜ */
         .packages-section {
@@ -157,16 +179,15 @@
 
         .package-grid {
             display: grid;
-            /* 4 kartı yan yana sığdırmak için min genişliği 220px'e ayarladık */
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 20px; /* Gap miktarını azalttık */
+            gap: 20px; 
         }
 
         .package-card {
             background-color: var(--card-bg);
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            padding: 30px 20px; /* Mobil uyumluluk için dolguyu azalttık */
+            padding: 30px 20px;
             text-align: center;
             transition: transform 0.4s, box-shadow 0.4s;
             position: relative;
@@ -180,7 +201,6 @@
         }
 
         .package-card.proposal {
-            /* Evlilik teklifi paketi için özel stil */
             border: 2px solid var(--primary-color);
             box-shadow: 0 8px 30px rgba(233, 30, 99, 0.7);
             background-color: #382c33;
@@ -192,7 +212,7 @@
         }
 
         .package-card h3 {
-            font-size: 1.8em; /* Font boyutunu biraz küçülttük */
+            font-size: 1.8em;
             color: var(--secondary-color);
             margin-top: 5px;
             margin-bottom: 5px;
@@ -237,7 +257,7 @@
         .new-price {
             color: #4CAF50;
             font-weight: bold;
-            font-size: 2.8em; /* Font boyutunu biraz küçülttük */
+            font-size: 2.8em;
             display: block;
             line-height: 1;
         }
@@ -250,7 +270,7 @@
         }
 
         .features li {
-            padding: 8px 0; /* Dolguyu azalttık */
+            padding: 8px 0;
             border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
             color: var(--text-light);
             font-size: 0.95em;
@@ -287,7 +307,7 @@
         }
 
         .cta-proposal {
-            background-color: #E91E63; /* Canlı Pembe */
+            background-color: #E91E63;
             color: white !important;
         }
 
@@ -354,7 +374,52 @@
             margin-top: 0;
         }
 
-        /* 5. İLETİŞİM / SON ÇAĞRI BÖLÜMÜ */
+        /* 5. YORUMLAR BÖLÜMÜ (Yeni) */
+        .testimonials-section {
+            background-color: var(--bg-dark);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 5px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .client-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .client-info h4 {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+
+        /* 6. İLETİŞİM / SON ÇAĞRI BÖLÜMÜ */
         .contact-section {
             background-color: var(--primary-color);
             text-align: center;
@@ -399,6 +464,18 @@
             font-size: 0.9em;
         }
 
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+
         /* Mobil Uyumluluk */
         @media (max-width: 992px) {
             .hero-section h1 {
@@ -416,7 +493,18 @@
             .package-card.premium {
                 transform: scale(1);
             }
-            /* 768px'in altında 2 kart yan yana */
+            
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .main-cta-button, .secondary-cta-button {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+            
             .package-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
@@ -426,8 +514,8 @@
             .section-padding {
                 padding: 50px 0;
             }
-            /* 768px altında tüm paketler alt alta */
-            .package-grid, .process-steps, .trust-points {
+
+            .package-grid, .process-steps, .trust-points, .testimonial-grid {
                 flex-direction: column;
                 gap: 20px;
             }
@@ -448,8 +536,8 @@
             <a href="#" class="logo">Siteciniz.</a>
             <nav class="nav">
                 <a href="#paketler">Fiyatlandırma</a>
+                <a href="#yorumlar">Yorumlar</a>
                 <a href="#surec">Nasıl Çalışır?</a>
-                <a href="#guven">Neden Biz?</a>
                 <a href="#iletisim" class="cta-nav-button">Hemen Başla</a>
             </nav>
         </div>
@@ -459,7 +547,14 @@
         <div class="container">
             <h1 data-aos="fade-up">Sevgiyi Dijitale Taşıyın: <span class="highlight">Unutulmaz Bir Web Sitesi</span> Hediye Edin.</h1>
             <p class="slogan" data-aos="fade-up" data-aos-delay="200">Kişiye özel tasarlanmış, anılarla örülü, benzersiz bir doğum günü sürprizi. Basitçe: **Dijital Duygusallık.**</p>
-            <a href="#paketler" class="main-cta-button scroll-link" data-aos="zoom-in" data-aos-delay="400">Paketleri Keşfet <i class="fas fa-arrow-down"></i></a>
+            
+            <div class="hero-cta-group">
+                <a href="#paketler" class="main-cta-button scroll-link" data-aos="zoom-in" data-aos-delay="400">Paketleri Keşfet <i class="fas fa-arrow-down"></i></a>
+                <a href="https://ornekdogumgunu.vercel.app" target="_blank" class="secondary-cta-button" data-aos="zoom-in" data-aos-delay="500">
+                    Örnek Siteyi Gör <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+            
         </div>
     </section>
 
@@ -528,8 +623,8 @@
                         <span class="new-price">1900 TL</span>
                     </div>
                     <ul class="features">
-                        <li><i class="fas fa-heart"></i> **7 Gün** Kalıcı Erişim</li>
-                        <li><i class="fas fa-heart"></i> Max. 30 HD Fotoğraf</li>
+                        <li><i class="fas fa-heart"></i> **1 AY** Kalıcı Erişim</li>
+                        <li><i class="fas fa-heart"></i> Max. 40 HD Fotoğraf</li>
                         <li><i class="fas fa-heart"></i> Özel Tema & Animasyonlar</li>
                         <li><i class="fas fa-heart"></i> Müzik & Video Embed Desteği</li>
                     </ul>
@@ -585,6 +680,41 @@
         </div>
     </section>
     
+    <section id="yorumlar" class="testimonials-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Müşterilerimiz Ne Dedi?</h2>
+            <p class="section-subtitle">Mutluluğuna ortak olduğumuz yüzlerce kişiden bazı geri bildirimler.</p>
+            
+            <div class="testimonial-grid">
+                
+                <div class="testimonial-card" data-aos="fade-up">
+                    <p>"Eşim bu sürprizi görünce kelimenin tam anlamıyla ağladı. Fotoğraflar ve müzik mükemmel bir uyum içindeydi. Gerçekten teşekkürler!"</p>
+                    <div class="client-info">
+                        <img src="https://via.placeholder.com/50/FFC107/1f2833?text=B" alt="Büşra Y.">
+                        <h4>Büşra Y. (İzmir)</h4>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+                    <p>"Teklif anımı dijital bir hatıraya dönüştürmek harika bir fikirdi. O link sonsuza kadar bizim için çok özel kalacak. Sonsuz Anlar paketi tam istediğim gibiydi."</p>
+                    <div class="client-info">
+                        <img src="https://via.placeholder.com/50/E91E63/ffffff?text=E" alt="Emre K.">
+                        <h4>Emre K. (İstanbul)</h4>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p>"Siteyi tam zamanında teslim ettiler ve her soruma sabırla cevap verdiler. Hizmet kalitesi fiyatının çok üzerinde. Herkese tavsiye ederim."</p>
+                    <div class="client-info">
+                        <img src="https://via.placeholder.com/50/4CAF50/ffffff?text=M" alt="Mert A.">
+                        <h4>Mert A. (Ankara)</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="iletisim" class="contact-section section-padding">
         <div class="container">
             <h2 class="section-title">Hazır Mısınız? İletişime Geçin!</h2>
@@ -599,13 +729,20 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© 2025 Siteciniz. Tüm Hakları Saklıdır. | İletişim: @dogumgunusiteciniz</p>
+            <p>© 2025 Siteciniz. Tüm Hakları Saklıdır.</p>
+            <div class="footer-links">
+                <a href="#kvkk-metni-linki" target="_blank">KVKK Aydınlatma Metni</a>
+                |
+                <a href="#hizmet-sozlesmesi-linki" target="_blank">Hizmet Sözleşmesi</a>
+                |
+                İletişim: @dogumgunusiteciniz
+            </div>
         </div>
     </footer>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800 }); // Animasyon süresi 800ms
+        AOS.init({ duration: 800 });
         
         // Basit Scroll JavaScript (Sayfa içi linkler için)
         document.querySelectorAll('.scroll-link').forEach(anchor => {
