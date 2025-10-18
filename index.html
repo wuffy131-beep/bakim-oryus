@@ -815,9 +815,8 @@
         // DİNAMİK GİRİŞ/KAYIT VE YORUM MANTIĞI (Vercel API'ye Bağlanıyor)
         // =========================================================================
 
-        // !!! LÜTFEN BURAYI KENDİ VERCEL SİTE ADINIZLA DEĞİŞTİRİN !!!
-        // Örn: 'https://ornekdogumgunu.vercel.app/api'
-        const API_BASE_URL = 'https://[VERCEL-SITE-ADINIZ].vercel.app/api'; 
+        // !!! GERÇEK VERCEL SİTE ADRESİNİZ !!!
+        const API_BASE_URL = 'https://dogumgunusiteciniz.vercel.app/api'; 
         
         let currentUserId = localStorage.getItem('userId'); // Kullanıcının ID'sini sakla
         let currentUsername = localStorage.getItem('username'); // Kullanıcının adını sakla
@@ -843,6 +842,12 @@
             }
         }
         
+        // --- Hata Yönetimi Yardımcı Fonksiyonu ---
+        function handleError(element, message) {
+             element.textContent = `❌ Hata: ${message}`;
+             element.style.color = 'var(--primary-color)';
+        }
+
         // --- 1. KAYIT İŞLEMİ ---
         document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -851,6 +856,7 @@
             const password = document.getElementById('reg-password').value;
 
             authStatus.textContent = 'Kayıt işlemi sürüyor...';
+            authStatus.style.color = 'var(--secondary-color)';
             
             try {
                 const res = await fetch(`${API_BASE_URL}/register`, {
@@ -865,12 +871,10 @@
                     authStatus.style.color = '#4CAF50';
                     document.getElementById('register-form').reset();
                 } else {
-                    authStatus.textContent = `❌ Hata: ${data.message}`;
-                    authStatus.style.color = 'var(--primary-color)';
+                    handleError(authStatus, data.message || 'Kayıt başarısız.');
                 }
             } catch (error) {
-                authStatus.textContent = `❌ Sunucuya ulaşılamıyor. Lütfen deneyin.`;
-                authStatus.style.color = 'red';
+                handleError(authStatus, 'Sunucuya ulaşılamıyor (API adresini kontrol edin).');
             }
         });
 
@@ -881,6 +885,7 @@
             const password = document.getElementById('login-password').value;
 
             authStatus.textContent = 'Giriş kontrol ediliyor...';
+            authStatus.style.color = 'var(--secondary-color)';
 
             try {
                 const res = await fetch(`${API_BASE_URL}/login`, {
@@ -892,18 +897,16 @@
 
                 if (res.ok) {
                     // Başarılı giriş: ID ve kullanıcı adını kaydet
-                    currentUserId = data.user.userId;
+                    currentUserId = data.user.userId.toString(); // ID'yi string olarak kaydet
                     currentUsername = data.user.username;
                     localStorage.setItem('userId', currentUserId);
                     localStorage.setItem('username', currentUsername);
                     updateUI(); // Arayüzü güncelle
                 } else {
-                    authStatus.textContent = `❌ Hata: ${data.message}`;
-                    authStatus.style.color = 'var(--primary-color)';
+                    handleError(authStatus, data.message || 'Giriş başarısız.');
                 }
             } catch (error) {
-                authStatus.textContent = `❌ Sunucuya ulaşılamıyor. Lütfen deneyin.`;
-                authStatus.style.color = 'red';
+                 handleError(authStatus, 'Sunucuya ulaşılamıyor (API adresini kontrol edin).');
             }
         });
 
@@ -934,11 +937,15 @@
                     const tarih = new Date(yorum.created_at).toLocaleDateString('tr-TR');
                     const username = yorum.username || 'Anonim';
                     
+                    // Rastgele renkli baş harf ikonu oluşturma
+                    const colorSeed = username.length % 5;
+                    const bgColor = ['#E91E63', '#FFC107', '#4CAF50', '#2196F3', '#FF5722'][colorSeed];
+                    
                     card.innerHTML = `
                         <p>"${yorum.content}"</p>
                         <div class="client-info">
-                            <img src="https://via.placeholder.com/50/${username.length % 2 === 0 ? 'E91E63' : 'FFC107'}/1f2833?text=${username.charAt(0).toUpperCase()}" alt="${username}">
-                            <h4>${username} (${tarih})</h4>
+                            <img src="https://via.placeholder.com/50/${bgColor.substring(1)}/1f2833?text=${username.charAt(0).toUpperCase()}" alt="${username}" style="border-color:${bgColor};">
+                            <h4>${username} <span style="font-size:0.8em; color:var(--text-muted);">(${tarih})</span></h4>
                         </div>
                     `;
                     yorumlarListesiDiv.appendChild(card);
@@ -946,7 +953,7 @@
 
             } catch (error) {
                 console.error('Yorum yüklenirken hata:', error);
-                yorumlarListesiDiv.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; color: red;">Yorumlar yüklenemedi. API bağlantısını kontrol edin.</p>';
+                yorumlarListesiDiv.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; color: red;">Yorumlar yüklenemedi. API bağlantısını veya Vercel Loglarını kontrol edin.</p>';
             }
         }
 
@@ -985,13 +992,11 @@
                     document.getElementById('yorum-metni').value = '';
                     await fetchComments();
                 } else {
-                    yorumMesajP.textContent = `❌ Hata: ${data.message}`;
-                    yorumMesajP.style.color = 'var(--primary-color)';
+                    handleError(yorumMesajP, data.message || 'Yorum gönderilemedi.');
                 }
 
             } catch (error) {
-                yorumMesajP.textContent = `❌ Sunucuya ulaşılamıyor. Lütfen Vercel API'yi kontrol edin.`;
-                yorumMesajP.style.color = 'red';
+                 handleError(yorumMesajP, 'Sunucuya ulaşılamıyor (API adresini kontrol edin).');
             }
         });
 
